@@ -1,0 +1,39 @@
+/*  */
+h2{
+    color: blue;
+    
+}
+h1{
+    text-transform: uppercase   ;
+}
+p{
+    color: darkcyan;
+    /* background-color: silver; */
+    font-size: 24px;
+    text-align: justify;
+    
+}
+/* style css của ID sẽ đc ưu tiên hơn so vs class */
+/* #doanvan1{
+    color: violet; 
+    background-color: springgreen;
+} */
+.paragraph{
+    background-color: wheat;
+    color: darkgreen;
+}
+.paragraph2{
+    color: yellow;
+    background-color: black;
+}
+/* gruop selector */
+h3, h4{
+    color: cadetblue;
+    text-decoration: underline;
+}
+div{
+    color: lightcoral;
+    background-color: lemonchiffon;
+    width: 70%;
+    /* height: 50%; */
+}

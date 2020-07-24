@@ -1,0 +1,25 @@
+h1{
+    color: red;
+    background-color: yellow;
+    /* text-decoration: underline; */
+    font-weight: bold;
+    font-style: oblique;
+    margin-left: 50px;
+}
+.quotes{
+    color: royalblue;
+    font-size: 30px;
+    font-weight: 800;
+    margin-left: 50px;
+}
+.imgtext{
+    margin-left: 500px;
+    /* text-align: center; */
+    font-style: italic;
+    color: slategray;
+}
+h2,h3{
+    margin-left: 50px;
+    color: lime;
+    text-transform: capitalize;
+}
