@@ -1,0 +1,20 @@
+#quochieu{
+    text-align: center;
+    text-transform: capitalize;
+}
+#tieude{
+    color: red;
+    text-align: center;
+}
+.ngatdoan{
+    text-align: center;
+}
+#kinhgui{
+    margin-left: 10%;
+    line-height: 2;
+}
+p{
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 1.25;
+}
