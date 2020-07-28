@@ -1,0 +1,117 @@
+div {
+    /* background-color: silver; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.column.banner {
+    width: 50%;
+    margin: 0px;
+}
+
+.header {
+    width: 80%;
+    margin: auto;
+}
+
+.sub-header {
+    margin: 5px;
+    height: 50px;
+    width: 50%;
+    background-color: red;
+}
+
+.banner {
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    height: 100px;
+}
+
+.banner-big {
+    background-color: skyblue;
+    width: 50%;
+    margin: 5px;
+}
+
+.banner-small {
+    background-color: skyblue;
+    margin: 5px;
+    height: 50%;
+}
+
+div.tittle {
+    background-color: skyblue;
+    width: 50%;
+    height: 50px;
+    margin: auto;
+}
+
+.slide {
+    width: 80%;
+    margin: auto;
+    height: 200px;
+}
+
+.slide1 {
+    margin: 5px;
+    width: 20%;
+}
+
+.slide2 {
+    margin: 5px;
+    width: 30%;
+}
+
+.slide3 {
+    margin: 5px;
+    width: 50%;
+}
+
+.slide>div {
+    background-color: skyblue;
+}
+
+.main-content {
+    width: 80%;
+    margin: auto;
+    /* height: 500px; */
+}
+
+.main-content>.column {
+    width: 33%;
+    margin: 5px;
+}
+
+.product {}
+
+.product.horizontal {
+    height: 200px;
+    background-color: skyblue;
+}
+
+.product.square {
+    height: 250px;
+    background-color: skyblue;
+}
+
+.product.vertical {
+    height: 400px;
+    background-color: skyblue;
+}
+
+.column>.product {
+    width: 100%;
+    margin: 5px 0px;
+}
