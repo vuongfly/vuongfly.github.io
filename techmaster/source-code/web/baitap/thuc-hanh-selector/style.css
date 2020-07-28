@@ -18,3 +18,19 @@ p{
     margin-right: 5%;
     line-height: 1.25;
 }
+.content{
+    text-indent: 30px;
+}
+#ngaythang{
+    margin: auto;
+    text-align: center;
+}
+#kyten{
+    margin: auto;
+    text-align: center;
+}
+#ketdoan{
+    width: 40%;
+    margin-left: auto;
+    margin-right: 10%;
+}

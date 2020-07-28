@@ -1,0 +1,126 @@
+.container{
+    width: 100%;
+}
+/* part 1 */
+.row1{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 400px;
+}
+.column1{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.red1{
+    margin: auto;
+    width: 60%;
+    background-color: red;
+    height: 400px;
+}
+.green1{
+    margin: auto;
+    width: 100%;
+    background-color: green;
+    height: 200px;
+}
+.blue1{
+    margin: auto;
+    width: 100%;
+    background-color: blue;
+    height: 200px;
+}
+
+.chiadoan{
+    height: 100px;
+}
+
+/* part 2 */
+.row2{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 400px;
+}
+.column2{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.red2{
+    /* margin: auto; */
+    width: 60%;
+    background-color: red;
+    height: 400px;
+}
+.green2{
+    margin: auto;
+    width: 100%;
+    background-color: green;
+    height: 200px;
+}
+.blue2{
+    margin: auto;
+    width: 100%;
+    background-color: blue;
+    height: 200px;
+}
+/* part 3 */
+.row3{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    height: 400px;
+}
+
+.red3{
+    
+    width: 33%;
+    background-color: red;
+    height: 400px;
+}
+.green3{
+    width: 33%;
+    background-color: green;
+    height: 400px;
+}
+.blue3{
+    
+    width: 33%;
+    background-color: blue;
+    height: 400px;
+}
+/* part 4 */
+.row4{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    height: 400px;
+}
+.red4{
+    margin: 7.5px;
+    width: 33%;
+    background-color: red;
+    height: 400px;
+}
+.green4{
+    margin: 7.5px;
+    width: 33%;
+    background-color: green;
+    height: 400px;
+}
+.blue4{
+    margin: 7.5px;
+    width: 33%;
+    background-color: blue;
+    height: 400px;
+}
