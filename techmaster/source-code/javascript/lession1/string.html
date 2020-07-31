@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String tutorial</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        // string
+        var userName = "Vuong Fly";
+        console.log("User Name: " + userName)
+        var firstName = 'Vuong';
+        var lastName = 'Fly';
+        var fullName = firstName + ' ' + lastName;
+        console.log("First Name: " + firstName)
+        console.log("Last Name: " + lastName)
+        console.log("Full Name: " + fullName)
+        // properties
+        var fullNameLength = fullName.length;
+        console.log("Length :" + fullNameLength)
+
+        // method với string
+        // 1. concat: dùng để cộng chuỗi
+        var fullName1 = firstName.concat(" ",lastName)
+        console.log("Full Name: " + fullName1)
+        // 2. indexOf, lastIndexOf
+        var userName = "Vuong Fly Fly";
+        console.log(userName.indexOf('Fly'));
+        console.log(userName.lastIndexOf('Fly'))
+        // 3. slice(ví trí bắt đầu, vị trí kết thúc) : cắt chuỗi 
+        // Có thể chuyền vò tham số âm
+        var liver = "Tell the world we are champion of England, Euro and the world ";
+        var subStr = liver.slice(-20, -1)
+        console.log(subStr)
+        var subStr = liver.slice(0, 10)
+        console.log(subStr)
+        // 4. substring(ví trí bắt đầu, vị trí kết thúc)
+        var liver = "Tell the world we are champion of England, Euro and the world";
+        var subStr = liver.substring(0, 20)
+        console.log(subStr)
+        // 5. substr(ví trí bắt đầu, độ dài chuỗi cần cắt)
+        var liver = "Tell the world we are champion of England, Euro and the world";
+        var subStr = liver.substr(9, 5)
+        console.log(subStr)
+        // 6. replace: thay thế chuỗi
+        // 7. search: tìm kiếm chuỗi
+
+    </script>
+    <!-- <script src="./main.js"></script> -->
+</body>
+
+</html>

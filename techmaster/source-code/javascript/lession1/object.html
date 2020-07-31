@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object tutorial</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Object
+        var userEmpty = {};
+        var user = {
+            name: "Vuong Fly",
+            gender: "male",
+            age: 24
+        }
+        console.log(user);
+        user.name = "Vuong Gerrard"
+        user.city = 'Ha Noi'
+        console.log(user);
+        // delete property
+        delete user.city
+        console.log(user);
+
+        // forIn để duyệt qua các key của object:
+        console.log("forIn");
+        for (const pro in user) {
+            if (user.hasOwnProperty(pro)) {
+                console.log(pro,user[pro]);
+            }
+        }
+        for (const ele of object) {
+            
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
