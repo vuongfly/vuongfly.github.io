@@ -1,0 +1,64 @@
+.footer{
+    background-color: green;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.half{
+    width: 30%;
+}
+.left{
+    
+}
+.mid{
+
+}
+.right{
+    /* background-color: blue; */
+}
+a.footer{
+    width: fit-content;
+    height: fit-content;
+    justify-content: flex-start;
+    text-decoration: none;
+    margin: 10px;
+}
+.footer-item{
+    
+}
+.footer-item>.row{
+    justify-content: flex-start;
+    align-items: center;
+}
+.icon{
+    height: 20px;
+    margin: 10px;
+}
+.copyright{
+    width: fit-content;
+    margin: auto;
+}
+.copyright>p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+.indent10{
+    text-indent: 10px;
+}
+.button{
+    width: fit-content;
+    height: 30px;
+    font-size: 24px;
+    margin: 10px;
+}
+input.email{
+    width: 200px;
+    font-size: 20px;
+    /* opacity: 0.5; */
+    height: 30px;
+    margin: 10px;
+}
