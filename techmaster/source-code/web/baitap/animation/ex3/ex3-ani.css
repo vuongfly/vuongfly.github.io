@@ -3,6 +3,16 @@
     height: 800px;
     margin: auto;
 }
+.btnLogin{
+    width: 100px;
+    height: 50px;
+    background-color: cyan;
+    transition: all 1s linear;
+}
+.btnLogin:hover{
+    border-radius: 25px;
+    background-color: springgreen;
+}
 
 .column {
     margin: 10px;
@@ -77,16 +87,20 @@ p{
 }
 
 @keyframes action{
-    30%{
+    0%{
         background-color: orange;
         content: "Coding";
     }
-    60%{
+    33%{
         background-color: violet;
         content: "Learning";
     }
-    90%{
+    66%{
         background-color: green;
-        content: "Hjxhjx";
+        content: "Teaching";
+    }
+    100%{
+        background-color: orange;
+        content: "Coding";
     }
 }
