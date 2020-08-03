@@ -1,0 +1,19 @@
+.container{
+    width: 60%;
+    height: 300px;
+    border:  black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.btnLogin{
+    width: 100px;
+    height: 50px;
+    background-color: cyan;
+    transition: all 1s linear;
+}
+.btnLogin:hover{
+    border-radius: 25px;
+    background-color: springgreen;
+}
