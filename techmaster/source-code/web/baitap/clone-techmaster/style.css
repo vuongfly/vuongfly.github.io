@@ -11,12 +11,12 @@ body {
     color: #464646;
 }
 
-body * p{
+body * p {
     font-family: Roboto, sans-serif;
     color: #464646;
 }
 
-a{
+a {
     color: #007bff;
     text-decoration: none;
 }
@@ -46,7 +46,8 @@ a{
     margin: 5px 10px;
     width: 10%;
 }
-.logo-container.row{
+
+.logo-container.row {
     justify-content: space-around;
     align-items: center;
 }
@@ -56,19 +57,53 @@ img.logo-brand {
 }
 
 .nav-bar {
+    width: 80%;
     margin: 0px 10px;
 }
-.nav-bar.row{
+
+.nav-bar.row {
     justify-content: space-around;
     align-items: center;
 }
 
-.nav-bar>a {
+.list-menu {
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list-menu.row{
+    margin-right: 10px;
+}
+
+.list-menu>li {
+    display: flex;
+    position: relative;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.menu-item {
+    position: relative;
     color: white;
     font-size: 17px;
     text-transform: uppercase;
     text-decoration: none;
-    margin: 5px 10px;
+    margin: 5px 5px;
+}
+
+.sub-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    /* left: 100%; */
+    width: max-content;
+    height: 100%;
+    background-color: white;
+    border: solid rgba(0, 0, 0, 0.2) 0.5px;
 }
 
 img.avatar {
@@ -91,7 +126,7 @@ img.avatar {
     color: #464646;
 }
 
-.main-content{
+.main-content {
     padding: 30px;
     background-color: white;
     width: 80%;
@@ -100,41 +135,40 @@ img.avatar {
     position: relative;
 }
 
-.post-content{
+.post-content {
     margin: 0px 15px;
     width: 70%;
     overflow: auto;
 }
 
-.post-content img{
+.post-content img {
     margin: 10px;
     max-width: 100%;
 }
 
-.post-info{
+.post-info {
     margin: 0px 15px;
     width: 30%;
     overflow: auto;
-    
 }
 
-.title h1{
+.title h1 {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.75;
 }
-.margin-bottom-15{
+
+.margin-bottom-15 {
     margin-bottom: 15px;
 }
 
-.list-tag{
+.list-tag {}
 
-}
-.list-tag.row{
+.list-tag.row {
     justify-content: flex-start;
 }
 
-a.tag-item{
+a.tag-item {
     text-decoration: none;
     color: #808080;
     background-color: #e5e5e5;
@@ -144,62 +178,70 @@ a.tag-item{
     font-size: 12px;
 }
 
-.figcaption{
+.figcaption {
     font-style: italic;
     text-align: center;
     margin: 1.5rem 0px;
 }
 
-.author{
+.author {
     width: 100%;
 }
-.author.row{
+
+.author.row {
     align-items: center;
     align-content: center;
 }
-.author-avatar{
+
+.author-avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
 }
-.author-avatar img{
+
+.author-avatar img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
 }
-.author-info{
+
+.author-info {
     width: auto;
     height: 100%;
     padding-left: 15px;
 }
-.author-info.column{
+
+.author-info.column {
     justify-content: space-around;
 }
-.author p{
+
+.author p {
     margin: 0px;
 }
 
-.footer{
+.footer {
     margin: auto;
     width: 100%;
     height: 250px;
     background-color: #34465c;
 }
-.center-div{
+
+.center-div {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
-.web-owner{
+
+.web-owner {
     text-transform: uppercase;
     color: snow;
     text-align: center;
     font-size: 50px;
 }
 
-.footer>.center-div>p{
+.footer>.center-div>p {
     color: snow;
     line-height: 1.5;
 }

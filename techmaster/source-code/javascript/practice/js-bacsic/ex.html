@@ -203,7 +203,7 @@
             var result = [];
             // so sánh 2 giá trị sau khi đã xóa dấu tiếng việt
             result = nameArr.sort(function (a, b) {
-                return (change_alias(a).localeCompare(change_alias(b)))
+                return ((a).localeCompare(b));
             });
             return result;
         }
