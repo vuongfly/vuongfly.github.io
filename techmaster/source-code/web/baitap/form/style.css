@@ -1,0 +1,17 @@
+body {
+    font-size: 24px;
+    width: 100%;
+    background-color: #f0f2f5;
+}
+
+input[type="text"] {
+    background-color: rgb(182, 173, 175);
+}
+
+#password, #confirmPassword {
+    background-color: cyan;
+}
+
+form.register {
+
+}

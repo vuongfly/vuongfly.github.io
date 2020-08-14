@@ -1,0 +1,136 @@
+body {
+    font-size: 24px;
+    font-family: inherit;
+    width: 100%;
+    margin: auto;
+    background-color: #f0f2f5;
+}
+
+body *{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.right-side{
+    width: 30%;
+}
+
+.main-content{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 150px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.logo{
+    margin-top: 30px;
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: start;
+}
+
+h2{
+    margin-top: 0px;
+}
+
+.logo-img{
+    margin-left: -28px;
+    max-height: 110px;
+    float: left;
+}
+
+.form-login-container{
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.email, .password{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+#email, #password, #submitLogin {
+    width: 100%;
+    max-width: 100%;
+    font-size: 17px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    border: 1px solid #dddfe2;
+}
+
+#submitLogin{
+    height: 50px;
+    background-color: #1877f2;
+    color: white;
+    font-weight:600;
+}
+
+.forgetPass{
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.forgetPass>a{
+    font-size: 16px;
+}
+
+.register-btn-div{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.register-btn{
+    color: white;
+    padding: 5px 15px;
+    font-size: 17px;
+    background-color: #42b72a;
+    border-radius: 6px;
+    border: 1px solid white;
+    height: 50px;
+}
+
+.gioi-thieu{
+    width: 50%;
+    position: relative;
+}
+
+input[type="text"] {
+}
+
+#password {
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}
+
+.margin-top-20{
+    margin-top: 20px;
+}
+
+.font-size-14{
+    font-size: 14px;
+}
