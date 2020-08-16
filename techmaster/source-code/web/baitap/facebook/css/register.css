@@ -1,0 +1,173 @@
+body {
+    font-size: 24px;
+    font-family: inherit;
+    width: 100%;
+    margin: auto;
+    background-color: #f0f2f5;
+}
+
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-container {
+    margin-top: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reg-form-container {
+    width: 432px;
+    position: relative;
+    padding: 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.close-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+form#register {
+    margin: 0px;
+    width: 100%;
+    padding: 16px;
+}
+
+.form-header {
+    width: 100%;
+    padding: 15px;
+}
+
+.form-header .header {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 0px;
+    /* font-family: ; */
+}
+
+.form-header .header2 {
+    color: #606770;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.fullname_field {
+    width: 399px;
+    margin-bottom: 10px;
+    /* padding-right: 8px; */
+}
+
+.firstname_field, .lastname_field {
+    width: 194px;
+}
+
+.firstname_field {
+    margin-right: 12px;
+}
+
+input[type="text"] {
+    width: 100%;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 11px;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    background-color: #f5f6f7;
+}
+
+.border-type1 {
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+}
+
+.email_field, .password_field, .birthday_field, .gender_field {
+    width: 399px;
+    margin-bottom: 10px;
+    /* padding-right: 8px; */
+}
+
+.field_tittle {
+    font-size: 12px;
+    line-height: 20px;
+    color: #606770;
+}
+
+.day_field, .month_field, .year_field {
+    width: 125px;
+    margin-right: 12px;
+}
+
+.year_field {
+    margin-right: 0px;
+}
+
+.day-picker, .month-picker, .year-picker {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.male_field {
+    width: 120px;
+}
+
+.female_field {
+    width: 105px;
+}
+
+.option_field {
+    width: 153px;
+    position: relative;
+}
+
+.male_field, .female_field {
+    position: relative;
+    margin-right: 10px;
+}
+
+.male_field input, .female_field input, .option_field input {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+}
+
+.male_field label, .female_field label, .option_field label {
+    font-size: 15px;
+    line-height: 34px;
+    padding: 5px;
+}
+
+.note * {
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.register-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+input#submitRegister {
+    color: white;
+    padding: 5px 15px;
+    font-size: 17px;
+    background-color: #42b72a;
+    border-radius: 6px;
+    border: 1px solid white;
+    width: 194px;
+    line-height: 25px;
+}
