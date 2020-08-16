@@ -1,0 +1,98 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(222, 242, 250);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: red;
+}
+
+.main-container {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+.main-content {
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.img-container {
+    width: 100%;
+    height: 600px;
+    background-image: url(./image/bvdanang_niov.jpg);
+    background-size: cover;
+    background-position: center;
+    animation: changeImg 60s linear infinite;
+    
+}
+
+.image {
+    height: 600px;
+    width: 100%;
+    padding: 10px;
+    /* animation: changeImg 4s ease infinite; */
+}
+
+.image:after{
+}
+
+.content {
+    width: 100%;
+}
+
+.content p {
+    color: skyblue;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+@keyframes changeImg{
+    0% {
+        background-image: url(./image/bvdanang_niov.jpg);
+
+    }
+    10%{
+        background-image: url(./image/image001.jpg);
+    }
+    20%{
+        background-image: url(./image/image004_154202013.jpg);
+    }
+    30%{
+        background-image: url(./image/image005_154202013.jpg);
+    }
+    40%{
+        background-image: url(./image/image006_154202013.jpg);
+    }
+    50%{
+        background-image: url(./image/images1553696_1_AEWP.jpg);
+    }
+    60%{background-image: url(./image/images1553697_2_LUTL.jpg);
+
+    }
+    70%{background-image: url(./image/images1553698_3_XUPY.jpg);
+
+    }
+    80% {
+        background-image: url(./image/images1553699_4_YUAP.jpg);
+    }
+    90%{
+        background-image: url(./image/images1553700_5_RQOU.jpg);
+    }
+    100%{
+        background-image: url(./image/bvdanang_niov.jpg);
+    }
+}
