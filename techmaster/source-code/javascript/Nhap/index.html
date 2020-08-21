@@ -1,0 +1,36 @@
+<html>
+
+<head>
+
+</head>
+
+
+<body>
+
+    <script src="./nhap.js"></script>
+
+    <script>
+
+        var user = {
+            name: "Trương Minh Thúy",
+            age: 25,
+            email: 'support@techmaster.vn'
+        };
+
+        console.log(getKey(user));
+        // console.log(getKey2(user));
+        console.log(getValue(user));
+        console.log(checkKey(user, "age"));
+        console.log(getLengthValue(user));
+
+        let arrUser = [{ name: "A", age: 20, isStatus: true },
+        { name: "B", age: 26, isStatus: false },
+        { name: "C", age: 30, isStatus: true }]
+
+        console.log(filterAge25(arrUser));
+        console.log(sortByAge(arrUser));
+
+    </script>
+</body>
+
+</html>
