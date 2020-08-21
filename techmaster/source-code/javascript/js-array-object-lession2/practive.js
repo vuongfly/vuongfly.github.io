@@ -1,6 +1,21 @@
 
+// 1
+function volumeOfSphere(radius) {
+    return 4 / 3 * Math.PI * Math.pow(radius, 3);
+}
 
-
+// 2
+function sumBetweenNum(a, b) {
+    let sum = 0;
+    for (let i = a + 1; i < b; i++) {
+        sum += i;
+    }
+    return sum;
+}
+// 3
+function checkPrimeNumber(number){
+    
+}
 
 
 // 6
