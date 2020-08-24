@@ -111,7 +111,6 @@ function checkOddDecrease(arr) {
 // (không tính số 0 đầu tiên).
 function swapNumToSmallest(number) {
     number = number.toString();
-    console.log("10");
     let arrTemp = number.split("");
     arrTemp.sort((a, b) => (a - b));
     for (let i = 0; i < arrTemp.length; i++) {
