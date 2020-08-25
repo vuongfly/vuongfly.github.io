@@ -136,6 +136,10 @@ a {
     height: 350px;
 }
 
+.item-name{
+    font-size:30px;
+}
+
 .item-info{
     line-height:40px;
     padding: 10px;
