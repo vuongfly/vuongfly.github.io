@@ -127,11 +127,14 @@ a {
     margin-bottom: 50px;
 }
 
-.item-img{
+.item{
     max-width: 100%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.item-img img{
+.item img{
     max-width: 100%;
     height: 350px;
 }
