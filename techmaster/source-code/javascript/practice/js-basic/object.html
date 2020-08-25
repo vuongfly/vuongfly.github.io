@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    <div>
+
+    </div>
 
     <script>
 
@@ -29,14 +32,23 @@
         console.log("forIn");
         for (const pro in user) {
             if (user.hasOwnProperty(pro)) {
-                console.log(pro,user[pro]);
+                console.log(pro, user[pro]);
             }
         }
-        for (const ele of object) {
-            
+
+        // Object.entries()
+        {
+            let arr = [2, 4, 6, 21, 45, 65, 23, 62];
+            console.log(Object.entries(arr));
+            let user = {
+                name: "Vuong Fly",
+                gender: "male",
+                age: 24
+            }
+
+            console.log(Object.entries(user));
+            console.log(user);
         }
-
-
 
 
     </script>
