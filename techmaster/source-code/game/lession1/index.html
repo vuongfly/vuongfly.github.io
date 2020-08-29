@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Tutorial</title>
+    <style>
+      canvas {
+        /* border: 10px solid red; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- định nghĩa thẻ canvas -->
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      // Truy cập vào phần tử canvas
+      // const canvas = document.getElementById('canvas');
+      // const canvas = document.querySelector('#canvas');
+      const canvas = document.querySelectorAll("#canvas")[0];
+
+      // Thay đổi style canvas
+      console.log(canvas);
+      canvas.width = 1000;
+      canvas.height = 500;
+      // canvas.style.backgroundColor = 'springgreen';
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+
+      // Vẽ hình chữ nhật
+      // ctx.beginPath();
+      // ctx.fillStyle = "red";
+      // ctx.strokeStyle = "blue";
+      // ctx.rect(50, 50, 100, 100);
+      // ctx.stroke();
+      // ctx.fill();
+      // ctx.closePath();
+
+      // ctx.beginPath();
+      // ctx.fillStyle = "blue";
+      // ctx.strokeStyle = "red";
+      // ctx.rect(50, 250, 200, 100);
+      // ctx.stroke();
+      // ctx.fill();
+
+      // //   Vẽ đoạn thẳng
+
+      // ctx.beginPath();
+      // ctx.moveTo(200, 200);
+      // ctx.lineTo(450, 450);
+      // ctx.strokeStyle = "blue";
+      // ctx.stroke()
+
+      // // Text
+      // ctx.beginPath();
+      // ctx.fillStyle = "red";
+      // ctx.font ='40pt Calibri';
+      // ctx.fillText("Hello", 200, 200);
+      
+      // ctx.font ='italic 40pt Calibri ';
+      // ctx.strokeStyle = "red";
+      // ctx.strokeText("Hallooooo", 300, 300);
+
+      // shadow
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.shadowColor='black';
+      ctx.shadowOffsetX = 10;
+      ctx.shadowOffsetY = 10;
+      ctx.shadowBlur = 30;
+      
+
+      ctx.rect(100, 100, 200, 200);
+      ctx.fill();
+
+
+    </script>
+  </body>
+</html>

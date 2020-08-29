@@ -1,0 +1,25 @@
+.image1 {
+    width: 800px !important;
+  }
+  .image2 {
+    width: 1000px;
+  }
+  #img-id1 {
+    width: 1500px;
+  }
+  img {
+    width: 500px;
+  }
+
+  .day_field {
+    width: 100px;
+    color: blue;
+    background-color: green;
+    padding: 100px 20px 10px 50px;
+    margin: 20px 10px;
+  }
+
+  .text_field{
+      text-indent: 20px;
+      padding: 20px;
+  }

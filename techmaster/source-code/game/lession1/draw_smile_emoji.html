@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smile Emoji</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 700;
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+      // vẽ hình tròn
+      //   arc(x, y, radius, startAngle, endAngle, counterClockWise);
+      //   x, y: tọa độ tâm
+      //   radius : bán kính
+      //   startAngle,endAngle: góc bắt đầu, kết thúc
+      //   counterClockWise: vẽ ngược kim đồng hồ?
+
+      
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'black';
+      let radius = 150;
+      ctx.arc(canvas.width/2, canvas.height/2 + 70, radius, Math.PI * 0.1, Math.PI * 0.9, false);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'black';
+      radius = 300;
+      ctx.arc(canvas.width/2, canvas.height/2, radius, 0, Math.PI * 2, false);
+      ctx.stroke();
+      
+
+        
+      
+      
+    </script>
+  </body>
+</html>

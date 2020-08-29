@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThaiLand Flag</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1500;
+      canvas.height = 700;
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+
+      //   vẽ hình
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+    //   ctx.strokeStyle = "blue";
+      ctx.rect(0, 0, canvas.width, canvas.height / 6);
+    //   ctx.stroke();
+      ctx.fill();
+      ctx.closePath();
+
+      //   vẽ hình
+      ctx.beginPath();
+      ctx.fillStyle = "white";
+      ctx.rect(0, canvas.height / 6, canvas.width, canvas.height / 6);
+      ctx.fill();
+      ctx.closePath();
+
+      //   vẽ hình
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.rect(0, canvas.height / 3, canvas.width, canvas.height / 3);
+      ctx.fill();
+      ctx.closePath();
+      //   vẽ hình
+      ctx.beginPath();
+      ctx.fillStyle = "white";
+      ctx.rect(0, canvas.height *4 / 6, canvas.width, canvas.height / 6);
+      ctx.fill();
+      ctx.closePath();
+      //   vẽ hình
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.rect(0, canvas.height *5 / 6, canvas.width, canvas.height / 6);
+      ctx.fill();
+      ctx.closePath();
+      
+
+    </script>
+  </body>
+</html>

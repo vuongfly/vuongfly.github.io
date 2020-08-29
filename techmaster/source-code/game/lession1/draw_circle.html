@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circles</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 700;
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+      // vẽ hình tròn
+      //   arc(x, y, radius, startAngle, endAngle, counterClockWise);
+      //   x, y: tọa độ tâm
+      //   radius : bán kính
+      //   startAngle,endAngle: góc bắt đầu, kết thúc
+      //   counterClockWise: vẽ ngược kim đồng hồ?
+
+      class Circles {
+        constructor(
+          x,
+          y,
+          radius,
+          color,
+          startAngle = 0,
+          endAngle = Math.PI * 2,
+          counterClockWise = true
+        ) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.startAngle = startAngle;
+          this.endAngle = endAngle;
+          this.counterClockWise = counterClockWise;
+          this.color = color;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          let radius = this.radius;
+          ctx.arc(
+            this.x,
+            this.y,
+            this.radius,
+            this.startAngle,
+            this.endAngle,
+            this.counterClockWise,
+            this.color
+          );
+          ctx.fill();
+        }
+      }
+
+      function randomNumber(start, range) {
+        return Math.floor(Math.random() * range) + start;
+      }
+
+      function randomColor() {
+        return `#${Math.floor(Math.random() * 16777215)}`;
+      }
+
+      function drawRandomCircles(time=5) {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        for (let i = 0; i < time; i++) {
+          let radius = randomNumber(50, 100);
+          let x = randomNumber(radius, canvas.width - 2 * radius);
+          let y = randomNumber(radius, canvas.height - 2 * radius);
+          let color = randomColor();
+          let c = new Circles(x, y, radius, color);
+          c.draw();
+        }
+      }
+      setInterval(drawRandomCircles, 1000);
+
+    </script>
+  </body>
+</html>

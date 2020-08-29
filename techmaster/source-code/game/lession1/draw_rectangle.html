@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rectangle</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 800;
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+
+      // Vẽ hình top left
+
+      class Rectangle {
+        constructor(x, y, width, height, color) {
+          this.x = x;
+          this.y = y;
+          this.width = width;
+          this.height = height;
+          this.color = color;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.rect(this.x, this.y, this.width, this.height);
+          ctx.stroke();
+          ctx.fill();
+          ctx.closePath();
+        }
+      }
+
+      function randomNum(start = 100, range = 200) {
+        return Math.floor(Math.random() * range) + start;
+      }
+
+      let w = randomNum();
+      let h = randomNum();
+      let rect = new Rectangle(0, 0, w, h, "red");
+      rect.draw();
+
+      w = randomNum();
+      h = randomNum();
+      rect = new Rectangle(canvas.width-w, canvas.height-h, w, h, "blue");
+      rect.draw();
+
+      w = randomNum();
+      h = randomNum();
+      rect = new Rectangle(canvas.width-w, 0, w, h, "green");
+      rect.draw();
+
+      w = randomNum();
+      h = randomNum();
+      rect = new Rectangle(0, canvas.height-h, w, h, "pink");
+      rect.draw();
+
+      w = randomNum();
+      h = randomNum();
+      rect = new Rectangle((canvas.width-w)/2, (canvas.height-h)/2, w, h, "#836464");
+      rect.draw();
+
+    </script>
+  </body>
+</html>

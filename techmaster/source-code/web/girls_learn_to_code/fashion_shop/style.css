@@ -12,6 +12,7 @@ body {
 
 img {
     object-fit: cover;
+    width: 100%;
 }
 
 .row {
@@ -26,10 +27,12 @@ img {
 }
 
 .header {
+    /* background-color:whitesmoke; */
     width: 100%;
     min-height: 50px;
     margin-bottom: 20px;
     margin-top: 20px;
+    padding: 20px;
 }
 
 .brand {
@@ -37,10 +40,7 @@ img {
 }
 
 .brand h1 {
-    /* color: white;
-    background-color: cyan; */
     color: #091535;
-    background-color: white;
     font-style: italic;
     width: fit-content;
     padding: 5px 10px;
@@ -48,7 +48,10 @@ img {
 }
 
 .nav {
-    margin-left: 190px;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
 }
 
 a {
@@ -67,18 +70,15 @@ a {
 
 .intro {
     width: 100%;
-    height: 500px;
     background-color: whitesmoke;
     margin-bottom:50px;
 }
 
 .intro-thumbnail {
-    height: 100%;
-    width: 50%;
+    width: 60%;
 }
 
 .intro-thumbnail img {
-    height: 100%;
     width: 100%;
 }
 
@@ -112,8 +112,11 @@ a {
 
 .product-category{
     color: red;
-    font-size: 40px;
-    padding: 10px;
+    background-color:#d1feff;
+    font-size: 50px;
+    font-weight: bolder;
+    padding: 30px;
+    text-transform: uppercase;
     margin-bottom: 50px;
 }
 
@@ -147,9 +150,11 @@ a {
 
 .item-info{
     line-height:40px;
-    padding: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
 }
 
 .footer{
     padding: 25px;
+    background-color:whitesmoke
 }
