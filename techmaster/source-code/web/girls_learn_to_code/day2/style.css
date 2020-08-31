@@ -1,0 +1,60 @@
+body{
+    /* background-color: silver; */
+}
+
+.container{
+    width: 60%;
+    margin: auto;
+    border: 1px solid;
+    padding: 10px;
+}
+
+hr{
+    width:80%;
+}
+
+p {
+    color: blue;
+}
+
+.text {
+    color: red;
+}
+
+#textID {
+    color: green;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: yellow;
+    line-height: 2;
+}
+
+.div1{
+    width: 300px;
+    height: 200px;
+    background-color: aqua;
+    margin: auto;
+    padding: 20px;
+}
+
+.div2{
+    widows: 100px;
+    height: 50px;
+    background-color: red;
+    margin: 20px;
+}
+
+.div2:hover{
+    background-color: white;
+}
+
+a:hover{
+    color: red;
+    font-weight: bolder;
+}
+
+.div2 .text2{
+    color: white;
+}
