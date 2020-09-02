@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Tutorial</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      // document.addEventListener('keydown', function(e) {
+      //     if (e.keyCode == 13) {
+      //         console.log("Enter");
+      //     } else{
+      //         console.log(`${e.key} Not enter`);
+      //     }
+      // })
+
+      // document.addEventListener('click', function(e) {
+      //     console.log(`clicked`);
+      //     console.log(`${e.clientX} ${e.clientY}`);
+      //     console.log(`${e.screenX} ${e.screenY}`);
+      // })
+
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 700;
+      canvas.style.border = "5px solid black";
+      const ctx = canvas.getContext("2d");
+
+      //   class circle
+      class Circles {
+        constructor(
+          x,
+          y,
+          radius = 50,
+          color = "red",
+          startAngle = 0,
+          endAngle = Math.PI * 2,
+          counterClockWise = true
+        ) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.startAngle = startAngle;
+          this.endAngle = endAngle;
+          this.counterClockWise = counterClockWise;
+          this.color = color;
+        }
+        draw() {
+          ctx.beginPath();
+          //   ctx.fillStyle = this.color;
+          let radius = this.radius;
+          ctx.arc(
+            this.x,
+            this.y,
+            this.radius,
+            this.startAngle,
+            this.endAngle,
+            this.counterClockWise,
+            this.color
+          );
+          //   ctx.fill();
+          ctx.stroke();
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        let color = ["red", "green", "blue", "purple", "yellow"];
+        c = new Circles(
+          event.clientX,
+          event.clientY,
+          50,
+          color[Math.floor(Math.random() * color.length)]
+        );
+        c.draw();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.keyCode == 13) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+
+      document.addEventListener("mousemove", function (event) {
+        // let color = ["red", "green", "blue", "purple", "yellow"];
+        // c = new Circles(
+        //   event.clientX,
+        //   event.clientY,
+        //   10,
+        //   color[Math.floor(Math.random() * color.length)]
+        // );
+        // c.draw();
+      });
+
+      window.addEventListener("resize", function () {
+        console.log("resize");
+        canvas.width = innerWidth * 0.9;
+        canvas.height = innerHeight * 0.9;
+      });
+
+      
+    </script>
+  </body>
+</html>
