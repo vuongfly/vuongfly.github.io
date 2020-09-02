@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        canvas.style.border = "5px solid black";
+        const ctx = canvas.getContext("2d");
+        // ctx.translate(5, 5);
+
+        const colors = ['#9c5621', '#e6ccad'];
+        const length = canvas.width / 8;
+
+        function drawChessBoard(colors, length) {
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 8; j++) {
+                    rect = new Rectangle(i * length, j * length, length, length);
+                    if (i % 2 == j % 2) {
+                        // console.log(`${i} ${j} ${colors[0]}`);
+                        rect.color = colors[0];
+                        rect.draw();
+                    } else {
+                        // console.log(`${i} ${j}`);
+                        rect.color = colors[1];
+                        rect.draw();
+                    }
+                }
+            }
+        }
+
+        class Rectangle {
+            constructor(x, y, width, height, color) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.closePath();
+            }
+        }
+
+        drawChessBoard(colors, length);
+    </script>
+</body>
+
+</html>
