@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the box</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 800;
+      canvas.style.border = "5px solid black";
+
+      const ctx = canvas.getContext("2d");
+
+      class Circles {
+        constructor(x, y, radius, color) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.color = color;
+          this.dx = 0;
+          this.dy = 0;
+          this.direction = ["right", "bottom", "left", "top"];
+          this.direct = 0;
+          this.step = 2;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          //   ctx.stroke();
+          ctx.fill();
+        }
+        move() {
+          console.log(`${this.direction[this.direct % 4]}`);
+          switch (this.direction[this.direct % 4]) {
+            case "right":
+              if (this.x >= canvas.width - 50 - this.radius) {
+                this.direct++;
+                console.log(`${this.direction[this.direct % 4]}`);
+                this.dx = 0;
+                this.color = "orange";
+              } else {
+                this.dx = this.step;
+              }
+              break;
+            case "bottom":
+              if (this.y >= canvas.height - 50 - this.radius) {
+                this.direct++;
+                console.log(`${this.direction[this.direct % 4]}`);
+                this.dy = 0;
+                this.color = "green";
+              } else {
+                this.dy = this.step;
+              }
+              break;
+            case "left":
+              if (this.x <= this.radius + 50) {
+                this.direct++;
+                console.log(`${this.direction[this.direct % 4]}`);
+                this.dx = 0;
+                this.color = "blue";
+              } else {
+                this.dx = -this.step;
+              }
+              break;
+            case "top":
+              if (this.y <= this.radius + 50) {
+                this.direct++;
+                console.log(`${this.direction[this.direct % 4]}`);
+                this.dy = 0;
+                this.color = "red";
+              } else {
+                this.dy = -this.step;
+              }
+              break;
+            default:
+              break;
+          }
+
+          this.x += this.dx;
+          this.y += this.dy;
+          this.draw();
+        }
+        clear() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      let c = new Circles(100, 100, 50, "red");
+      c.draw();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c.move();
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
