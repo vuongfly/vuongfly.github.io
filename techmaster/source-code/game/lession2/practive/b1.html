@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ đường chéo</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        canvas.width = innerWidth * 0.9;
+        canvas.height = innerHeight * 0.9;
+        canvas.style.border = "5px solid black";
+        // canvas.style.margin = 'auto';
+
+        const ctx = canvas.getContext("2d");
+
+        window.addEventListener("resize", function () {
+            canvas.width = innerWidth * 0.9;
+            canvas.height = innerHeight * 0.9;
+            drawDiagonalLine();
+        })
+
+        function drawDiagonalLine() {
+            drawLine(0, 0, canvas.width, canvas.height); 
+            drawLine(0, canvas.height, canvas.width, 0);
+        }
+
+        function drawLine(x, y, x2, y2) {
+            console.log(`${x} ${y} ${x2} ${y2}`);
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x2, y2);
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        // function randomColor() {
+        //     return `#${Math.floor(Math.random() * 16777215)}`;
+        // }
+
+        drawDiagonalLine()
+
+
+
+    </script>
+</body>
+
+</html>
