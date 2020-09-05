@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Button</title>
+</head>
+
+<body>
+    <style>
+        .content{
+            width: 80%;
+            margin: auto;
+        }
+        .btn-container {
+            margin-top: 20px;
+            width: 100%;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: aqua;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 5px;
+        }
+
+        button,
+        input[type='text'] {
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            font-size: 25px;
+            line-height: 30px;
+        }
+    </style>
+    <div class="content">
+        <div class="btn-container">
+            <button id="btn_draw_circle">Draw a circle</button>
+            <button id="btn_draw_circle_random">Draw random circle</button>
+            <button id="btn_draw_rect">Draw a rectangle</button>
+            <button id="btn_draw_text">Draw text</button>
+            <button id="btn_clear">Clear</button>
+        </div>
+    
+        <div class="btn-container">
+            <input type="text" name="text" id="text">
+        </div>
+    
+        <canvas id="canvas">
+    
+        </canvas>
+    </div>
+
+    <script>
+
+        // Declare var of button
+        const btn_draw_circle = document.getElementById('btn_draw_circle');
+        const btn_draw_circle_random = document.getElementById('btn_draw_circle_random');
+        const btn_draw_rect = document.getElementById('btn_draw_rect');
+        const btn_draw_text = document.getElementById('btn_draw_text');
+        const btn_clear = document.getElementById('btn_clear');
+
+        // Declare canvas and style
+        const canvas = document.getElementById('canvas');
+        canvas.width = innerWidth * 0.8;
+        canvas.height = innerHeight * 0.8;
+        canvas.style.border = '1px solid #ccc';
+        const ctx = canvas.getContext('2d');
+
+        // func random
+        function randomNumber(start, range) {
+            return Math.floor(Math.random() * range) + start;
+        }
+
+        function randomColor() {
+            let color = ["red", "green", "blue", "purple", "yellow"];
+            return color[randomNumber(0, color.length)];
+        }
+
+        // call event
+        btn_draw_circle.addEventListener('click', drawCircle);
+        btn_draw_circle_random.addEventListener('click', drawRandomCircles);
+        btn_draw_rect.addEventListener('click', drawRect);
+        btn_draw_text.addEventListener('click', function () {
+            const text = document.getElementById('text');
+            let textValue = 'Hello World';
+            if (text.value.length > 0) {
+                textValue = text.value;
+            }
+            drawText(textValue);
+        });
+        btn_clear.addEventListener('click', clear);
+
+        // list event of buttons
+        function drawCircle() {
+            ctx.beginPath();
+            ctx.fillStyle = randomColor();
+            ctx.arc(randomNumber(0, canvas.width), randomNumber(0, canvas.height), randomNumber(50, 150), 0, Math.PI * 2)
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawRandomCircles() {
+            for (let i = 0; i < 5; i++) {
+                drawCircle();
+            }
+        }
+
+        function drawRect() {
+            ctx.beginPath();
+            ctx.fillStyle = randomColor();
+            ctx.rect(randomNumber(0, canvas.width), randomNumber(0, canvas.height), randomNumber(50, 150), randomNumber(50, 150));
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawText(text) {
+            ctx.font = `${randomNumber(20, 60)}px Arial`;
+            ctx.fillStyle = randomColor();
+            ctx.fillText(text, randomNumber(0, canvas.width), randomNumber(0, canvas.height));
+        }
+
+        function clear() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+    </script>
+
+</body>
+
+</html>

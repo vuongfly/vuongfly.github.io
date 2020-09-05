@@ -9,6 +9,13 @@
 
 <body>
     <canvas id="canvas" width="800" height="800"></canvas>
+    <!-- <img id='white-king' src="./chess/Pawn Chess Piece.G03.watermarked.2k.png" alt=""> -->
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <script>
         const canvas = document.getElementById("canvas");
         canvas.style.border = "5px solid black";
@@ -23,14 +30,11 @@
                 for (let j = 0; j < 8; j++) {
                     rect = new Rectangle(i * length, j * length, length, length);
                     if (i % 2 == j % 2) {
-                        // console.log(`${i} ${j} ${colors[0]}`);
                         rect.color = colors[0];
-                        rect.draw();
                     } else {
-                        // console.log(`${i} ${j}`);
                         rect.color = colors[1];
-                        rect.draw();
                     }
+                    rect.draw();
                 }
             }
         }
@@ -52,7 +56,21 @@
             }
         }
 
+        // draw chess pieces
+        function drawChessPieces() {
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 8; j++) {
+                    ctx.beginPath();
+                    let img = document.getElementById("white-king")
+                    ctx.drawImage(img, i * length, j * length);
+                    console.log('ve hinh');
+                    ctx.closePath();
+                }
+            }
+        }
+
         drawChessBoard(colors, length);
+        // drawChessPieces();
     </script>
 </body>
 
