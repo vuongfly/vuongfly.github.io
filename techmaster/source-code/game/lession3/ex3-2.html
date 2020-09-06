@@ -44,7 +44,8 @@
                 color,
                 startAngle = 0,
                 endAngle = Math.PI * 2,
-                counterClockWise = true
+                counterClockWise = true,
+                step = 3
             ) {
                 this.x = x;
                 this.y = y;
@@ -69,11 +70,13 @@
                 );
                 ctx.fill();
             }
+            move() {}
         }
 
         function generateBall(N) {
             for (let i = 0; i < N; i++) {
-                let ball = new Circles(randomNumber(0, canvas.width), randomNumber(0, canvas.height), randomNumber(50, 100), randomRGB(), 0, Math.PI * 2);
+                let ball = new Circles(randomNumber(0, canvas.width), randomNumber(0, canvas.height), randomNumber(50, 30), randomRGB(), 0, Math.PI * 2);
+                ball.step = randomNumber(3,5);
                 balls.push(ball);
             }
         }
