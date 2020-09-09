@@ -46,6 +46,7 @@ btn_play.addEventListener('click', function startGame() {
         createGame(num_balls.value);
     }
     boss.setName(bossName.value);
+    countTime(boss);
     animate();
 
 })
@@ -60,7 +61,7 @@ class Ball {
     constructor(x, y, radius, color, name, startAngle = 0, endAngle = Math.PI * 2) {
         this.x = x; this.y = y; this.radius = radius;
         this.color = color; this.startAngle = startAngle; this.endAngle = endAngle;
-        this.point = 0; this.dx = 0; this.dy = 0; this.name = name
+        this.point = 0; this.dx = 0; this.dy = 0; this.name = name; this.time = 0;
     }
     draw() {
         ctx.beginPath();
@@ -84,6 +85,11 @@ class Ball {
         ctx.fillStyle = 'blue';
         ctx.font = '30pt Arial';
         ctx.fillText(this.point, 50, canvas.height - 50)
+    }
+    drawTime() {
+        ctx.fillStyle = 'white';
+        ctx.font = '30pt Arial';
+        ctx.fillText(`time: ${this.time}`, canvas.width - 200, canvas.height - 50)
     }
     move() {
         if (this.x > canvas.width - this.radius) {
@@ -246,5 +252,12 @@ function update() {
     boss.drawPoints();
     boss.move();
     boss.drawBossName();
+    boss.drawTime();
     eatBall(boss, balls);
+}
+
+function countTime(boss) {
+    setInterval(function () {
+        boss.time ++;
+    }, 1000)
 }
