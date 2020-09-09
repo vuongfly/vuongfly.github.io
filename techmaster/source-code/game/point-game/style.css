@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+#menu-items{
+    width: 100vw;
+    height: 20vh;
+    /* background-color: cyan; */
+    margin: 0;
+}
+
+button{
+    font-size: 30px;
+    line-height: 1,5rem;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+button:hover{
+    background-color: cyan;
+}
+
+#play, #win-game{
+    display: none;
+}
+
+.full-screen{
+    width: 100vw;
+    height: 100vh;
+}
+
+#win-game{
+    color: red;
+}
+
+input#name, input#number{
+    font-size: 30px;
+    line-height: 1,5rem;
+    margin: 20px;
+}
+
+input#number{
+    width: 100px;
+}
+
+#input_field{
+    width: 100%;
+    padding-top: 25px;
+}

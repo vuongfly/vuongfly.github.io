@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container ">
+        <div id="input_field" class="center column">
+            <div class = "name_field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class = "number_field">
+                <label for="number">Number</label>
+                <input type="number" name="number" id="number">
+            </div>
+        </div>
+        <div id="menu-items" class="center">
+            <button id='btn-play'>Play</button>
+            <button id='btn-exit'>Exit</button>
+        </div>
+
+        <div id="win-game" class="center">
+            <h2>Congratulations! You Won</h2>
+        </div>
+
+        <div id="play" class="center">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <script src="./func.js"></script>
+    <!-- <script src="./menu.js"></script> -->
+
+</body>
+
+</html>
