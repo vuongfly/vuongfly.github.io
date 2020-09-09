@@ -55,6 +55,7 @@ btn_exit.addEventListener('click', function () {
     play.style.display = 'none';
     input_field.style.display = 'flex';
     end_game.style.display = 'none';
+    endGame();
 })
 
 class Ball {
@@ -235,6 +236,7 @@ function endGame() {
     input_field.style.display = 'flex';
     menu_item.style.display = 'flex';
     play.style.display = 'none';
+    clearInterval(countTime);
 }
 
 
@@ -260,3 +262,4 @@ function countTime(boss) {
         boss.time++;
     }, 1000)
 }
+
