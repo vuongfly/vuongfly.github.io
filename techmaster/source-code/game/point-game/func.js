@@ -136,9 +136,7 @@ class Ball {
             this.y = canvas.height - this.radius
         }
     }
-    // isEnded(N) {
-    //     return this.point == N;
-    // }
+
     setName(name) {
         if (name.length == 0) {
             this.name = 'Fly'
@@ -152,7 +150,7 @@ function randomNumber(start, end) {
     return Math.floor(Math.random() * (end - start)) + start;
 }
 
-// tao list point
+// create list balls
 function generateBall(N) {
     for (let i = 0; i < N; i++) {
         let radius = 20;
@@ -164,7 +162,7 @@ function generateBall(N) {
     }
 }
 
-// ve list ball
+// draw list ball
 function drawBall(balls) {
     balls.forEach(element => {
         element.draw();
@@ -215,6 +213,18 @@ function eatBall(boss, balls) {
     });
 }
 
+
+function createGame(N) {
+    // creat balls
+    boss = new Ball(bossRadius, bossRadius, bossRadius, 'yellow', bossName.value);
+    generateBall(N);
+}
+
+function resetGame() {
+    balls = [];
+    // boss = new Ball(bossRadius, bossRadius, bossRadius, 'yellow');
+}
+
 // win game
 function winGame() {
     end_game.style.display = 'flex';
@@ -227,17 +237,6 @@ function endGame() {
     play.style.display = 'none';
 }
 
-
-function createGame(N) {
-    boss = new Ball(bossRadius, bossRadius, bossRadius, 'yellow', bossName.value);
-    // creat balls
-    generateBall(N);
-}
-
-function resetGame() {
-    balls = [];
-    // boss = null;
-}
 
 
 function animate() {
@@ -258,6 +257,6 @@ function update() {
 
 function countTime(boss) {
     setInterval(function () {
-        boss.time ++;
+        boss.time++;
     }, 1000)
 }
