@@ -17,7 +17,7 @@ class Circle {
         this.x = x; this.y = y; this.radius = radius;
         this.color = color; this.startAngle = startAngle; this.endAngle = endAngle;
         this.point = 0; this.dx = 0; this.dy = 0; this.step = 2, 5;
-        this.time = 0;
+        this.time = 0; this.userPoint = 0;
     }
     draw() {
         ctx.beginPath();
@@ -36,6 +36,11 @@ class Circle {
         ctx.fillStyle = 'black';
         ctx.font = '30pt Arial';
         ctx.fillText(`${this.time}`, canvas.width - 150, canvas.height - 50)
+    }
+    drawUserPoint() {
+        ctx.fillStyle = 'red';
+        ctx.font = '30pt Arial';
+        ctx.fillText(`${this.userPoint}`, 100, canvas.height - 50)
     }
     move() {
         if (this.x > canvas.width - this.radius) {
@@ -115,6 +120,7 @@ class Circle {
     eatBrick(bricks) {
         bricks.forEach((ele, index) => {
             if (this.checkCollided(ele)) {
+                ball.userPoint ++;
                 console.log('- point brick');
                 ele.point--;
                 ele.color = colors[ele.point];
@@ -199,6 +205,7 @@ function update() {
     ball.draw();
     ball.move();
     ball.drawTime();
+    ball.drawUserPoint();
     generateBricks();
     if (ball.isEnd()) {
         clearInterval(timeStatus);
