@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container center column">
+        <div class="tool row space-between">
+            <div class="tool-colors row">
+                <button id="btn-red" class="red btn-color" color='red'></button>
+                <button id="btn-blue" class="blue btn-color" color='blue'></button>
+                <button id="btn-green" class="green btn-color" color='green'></button>
+                <button id="btn-yellow" class="yellow btn-color" color='yellow'></button>
+                <button id="btn-black" class="black btn-color btn-active" color='black'></button>
+            </div>
+            <div class="tool-control row">
+                <button id="btn-clear">Clear</button>
+                <button id="btn-reset">Reset</button>
+            </div>
+            <div class="tool-lineWidth row">
+                <button id="btn-lineWidth1" class="btn-line-width btn-active" size='2'>
+                    <div class="diagonal-line border1 " ></div>
+                </button>
+                <button id="btn-lineWidth2" class="btn-line-width" size='4'>
+                    <div class="diagonal-line border2 "></div>
+                </button>
+                <button id="btn-lineWidth3" class="btn-line-width"size='6'>
+                    <div class="diagonal-line border3 " ></div>
+                </button>
+                <button id="btn-lineWidth4" class="btn-line-width" size='8'>
+                    <div class="diagonal-line border4 "></div>
+                </button>
+                <button id="btn-lineWidth5" class="btn-line-width" size='10'>
+                    <div class="diagonal-line border5 "></div>
+                </button>
+            </div>
+        </div>
+        <div class="canvasDiv center">
+            <canvas id="canvas">
+
+            </canvas>
+        </div>
+    </div>
+
+    <script src="./func.js"></script>
+</body>
+
+</html>
