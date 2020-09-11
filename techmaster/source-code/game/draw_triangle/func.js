@@ -42,13 +42,7 @@ function drawMedianLine(A, B, C) {
     ctx.closePath();
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    requestAnimationFrame(animate);
-    drawTriangle(A, B, C)
-    drawMedianLine(A, B, C)
-    drawMedianLine(B, A, C)
-    drawMedianLine(C, A, B)
-}
-
-animate();
+drawTriangle(A, B, C)
+drawMedianLine(A, B, C)
+drawMedianLine(B, A, C)
+drawMedianLine(C, A, B)
