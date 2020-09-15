@@ -1,6 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 1200;
+canvas.width = innerWidth * 0.95;
 canvas.height = 700;
 canvas.style.border = '1px solid';
 canvas.style.backgroundColor = 'black';
@@ -25,21 +25,21 @@ class Circle {
         ctx.closePath();
     }
     move() {
-        if (this.x > canvas.width - this.radius) {
+        if (this.x >= canvas.width - this.radius) {
             this.dx = -this.dx;
         }
-        if (this.x < this.radius) {
+        if (this.x <= this.radius) {
             this.dx = -this.dx;
         }
-        if (this.y > canvas.height - this.radius) {
+        if (this.y >= canvas.height - this.radius) {
             this.dy = -this.dy;
         }
-        if (this.y < this.radius) {
+        if (this.y <= this.radius) {
             this.dy = -this.dy;
         }
         this.x += this.dx;
         this.y += this.dy;
-        this.draw();
+        // this.draw();
     }
 
     checkCollided(rect) {
@@ -57,25 +57,29 @@ class Circle {
             distance_to_point(right, top, this.x, this.y) <= this.radius ||
             distance_to_point(right, bottom, this.x, this.y) <= this.radius) {
             this.dx = -this.dx;
-            this.dy = -this.dy;
+            if ((this.dy > 0 && this.y < top) || (this.dy < 0 && this.y > bottom)) {
+                this.dy = -this.dy;
+            }
             console.log('va cham o goc');
             return true;
         } else {
             // check collided in 4 edge
             if (this.x >= left && this.x <= right) {
-                if ((bottom + this.radius) > this.y && this.y > (top - this.radius)) {
+                if ((bottom + this.radius) >= this.y && this.y >= (top - this.radius)) {
                     console.log('va cham chuc ngang');
                     this.dy = - this.dy;
                     return true;
                 }
             } else {
                 if (this.y >= top && this.y <= bottom) {
-                    if ((right + this.radius) > this.x && this.x > (left - this.radius)) {
+                    if ((right + this.radius) >= this.x && this.x >= (left - this.radius)) {
                         console.log('va cham chuc doc');
                         this.dx = - this.dx;
-                        this.dy += space * maxDegChange / rect.height * 2;
+                        if (this.dy <= this.step && this.dy >= -this.step) {
+                            this.dy += space * maxDegChange / rect.height * 2;
+                            // this.dx = Math.abs(this.dx) / this.dx * Math.sqrt((Math.pow(this.step, 2) - Math.pow(this.dy, 2)), 2);
+                        }
                         console.log(this.dy);
-                        console.log(this.dx);
                         return true;
                     }
                 }
@@ -104,7 +108,8 @@ class Rectangle {
     }
     followBall(ball) {
         let center = this.y + this.height / 2;
-        let change = Math.random() * ball.step * 0.7;
+        let change = Math.abs(ball.dy) * 0.7;
+        // this.y += change;
         if (ball.y > center) {
             this.y += change;
         } else {
@@ -123,8 +128,6 @@ class Rectangle {
 let ball = new Circle(canvas.width / 2, canvas.height / 2, 20, 'white');
 let userBar = new Rectangle(0, canvas.height / 2, 30, 200, 'white');
 let botBar = new Rectangle(canvas.width - 30, canvas.height / 2, 30, 200, 'white');
-// ball.x = botBar.x - ball.radius - 100;
-// ball.y = botBar.y - ball.radius - 100;
 ball.dx = ball.step;
 ball.dy = ball.step / 2;
 
@@ -132,8 +135,7 @@ let horizontal = new Rectangle(canvas.width / 2 - 1, 0,
     2, canvas.height, 'white');
 
 canvas.addEventListener("mousemove", function (event) {
-    userBar.y = event.clientY - userBar.height / 2;
-    // botBar.y = event.clientY - botBar.height / 2;
+    userBar.y = event.offsetY - userBar.height / 2;
 })
 
 function animate() {
@@ -148,20 +150,20 @@ function update() {
     userBar.drawPoint(100, 100)
     botBar.draw();
     botBar.drawPoint(canvas.width - 120, 100)
-    ball.move();
     horizontal.draw();
     ball.checkCollided(userBar);
     ball.checkCollided(botBar);
+    ball.move();
     botBar.followBall(ball);
     fight();
 }
 
 function fight() {
-    if (ball.x == ball.radius) {
+    if (ball.x <= ball.radius) {
         botBar.point++;
         resetBall(ball);
     }
-    if (ball.x == canvas.width - ball.radius) {
+    if (ball.x >= canvas.width - ball.radius) {
         userBar.point++;
         resetBall(ball);
     }
