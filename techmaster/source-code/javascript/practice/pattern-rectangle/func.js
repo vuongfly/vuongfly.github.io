@@ -20,11 +20,40 @@ class Rectangle {
 }
 
 let rects = [];
-let firstWidth = 40;
+let firstWidth = 60;
 
-function drawNumRect(num) {
-    for (let i = num; i > 0; i--) {
-        let width = i* firstWidth;
-        let rect = new Rectangle();
+class Point {
+    constructor(x, y) {
+        this.x = x; this.y = y;
     }
 }
+
+function drawNumRect(num) {
+    let center = new Point(canvas.width / 2, canvas.height / 2);
+    let color = 'blue';
+    ctx.translate(center.x, center.y);
+    for (let i = num; i > 0; i--) {
+        let width = Math.pow(Math.sqrt(2), i) * firstWidth;
+        if (color.localeCompare('blue') == 0) {
+            color = 'green';
+        } else {
+            color = 'blue';
+        }
+        let rect = new Rectangle(0, 0, width, width, color);
+        if ((num - i) % 2 == 1) {
+            console.log('blue');
+            ctx.translate(0, - width / Math.sqrt(2));
+            ctx.rotate(45 * Math.PI / 180)
+            rect.draw();
+            ctx.rotate(-45 * Math.PI / 180)
+            ctx.translate(0, width / Math.sqrt(2));
+        } else {
+            console.log('green');
+            ctx.translate(-width / 2, -width / 2);
+            rect.draw();
+            ctx.translate(width / 2, width / 2);
+        }
+    }
+}
+
+drawNumRect(6);
