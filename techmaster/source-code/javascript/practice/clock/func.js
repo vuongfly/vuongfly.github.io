@@ -81,6 +81,8 @@ function drawHand(position, length, width) {
 }
 
 
+
+
 let radius = 200;
 function animate() {
     requestAnimationFrame(animate);
