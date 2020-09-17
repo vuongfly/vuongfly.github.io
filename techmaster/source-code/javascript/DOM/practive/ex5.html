@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change color background</title>
+</head>
+
+<body>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            border: 2px solid;
+            padding: 20px 30px;
+            font-size: 2rem;
+        }
+    </style>
+
+
+    <div id="container">
+        <button onclick='changeColor()' id='btn-change-color'>Click</button>
+    </div>
+
+    <script>
+
+        let color = ["red", "green", "blue", "purple", "yellow", 'black', 'gray', 'pink', 'orange'];
+
+        let container = document.getElementById('container');
+        let button = document.getElementById('btn-change-color');
+        
+        function changeColor() {
+            container.style.backgroundColor = color[Math.floor(Math.random() * color.length)];
+        }
+
+        function randomNumber(start, range) {
+            return Math.floor(Math.random() * range) + start;
+        }
+
+        function randomRGB() {
+            return `rgb(${randomNumber(0,255)},${randomNumber(0,255)},${randomNumber(0,255)})`;
+        }
+
+        function changeRandomColor() {
+            container.style.backgroundColor = randomRGB();
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

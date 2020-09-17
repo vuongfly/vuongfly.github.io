@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 4</title>
+</head>
+
+<body>
+    <div>
+        <label for="texture-selector">Choose a texture:</label>
+        <select id="texture-selector">
+            <option value="https://upload.wikimedia.org/wikipedia/commons/4/48/BLANK_ICON.png">&mdash;</option>
+            <option value="https://image.freepik.com/free-vector/memphis-seamless-patterns_9202-768.jpg">Memphis
+                Seamless</value>
+            <option value="https://image.freepik.com/free-vector/retro-styled-pattern-background_1048-6593.jpg">
+                Retro-styled</value>
+            <option value="https://image.freepik.com/free-vector/abstract-background-with-3d-pattern_1319-68.jpg">3D
+                Cubes</value>
+        </select>
+    </div>
+
+    <div id="texture-background" class="texture-sample"></div>
+
+    <script>
+        let selector = document.getElementById('texture-selector');
+
+        selector.addEventListener('change', function (e) {
+            let value = e.target.value;
+            console.log(value);
+            let texture_background = document.getElementById('texture-background');
+            texture_background.style.height = '100vh    ';
+            texture_background.style.backgroundImage = `url(${value})`;
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Introduction</title>
+</head>
+
+<body>
+
+    <style>
+        .text-danger{
+            color: red;
+        }
+    </style>
+
+    <h1 id="heading">Hello DOM</h1>
+
+    <p class='para para1'>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows
+        programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+
+    <p class='para para2'>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows
+        programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+
+    <p>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <br>
+    <br>
+
+    <img src="https://www.w3schools.com/w3css/img_lights.jpg"
+        alt="">
+
+    <br>
+    <button onclick="changeURLImage()">Change Image</button>
+
+
+
+    <script>
+        // Dom Introduction
+        // truy cập vào phần tử
+        const heading = document.getElementById('heading');
+        console.log(heading);
+
+        const paras = document.getElementsByTagName('p');
+        console.log(paras);
+
+        const paraClass = document.getElementsByClassName('para');
+        console.log(paraClass);
+
+        const paraSelector = document.querySelector('.para');
+        console.log(paraSelector);
+
+        const paraSelectorAll = document.querySelectorAll('.para');
+        console.log(paraSelectorAll);
+
+        // lấy nội dung của phần tử
+        const para1 = document.querySelector('.para1');
+        console.log(para1.innerHTML);
+        para1.innerText = 'Hi, I am <b>Fly </b>';
+        para1.innerHTML = 'Hi, I am <b>Fly </b>';
+        // para1.style.color = 'red';
+
+        let btn = document.createElement('button');
+        btn.innerText = 'Click';
+        btn.onclick = changeURLImage;
+        document.body.append(btn);
+
+        let input = document.createElement('input');
+        let button = document.querySelector('button')
+        input.placeholder = 'Enter Name'
+        // document.body.replaceChild(input, button);
+
+        // Delete
+        let para2 = document.querySelector('.para2');
+        document.body.removeChild(para2);
+
+        const link = document.querySelector('a')
+        link.href = 'https://www.facebook.com';
+        link.text = 'Facebook';
+
+        // // cách 1
+        // button.onclick = function () {
+        //     const image = document.querySelector('img')
+        //     image.src = 'https://www.w3schools.com/w3css/img_snowtops.jpg'
+        // }
+
+        // // cách 2
+        // button.addEventListener('click', function () {
+        //     const image = document.querySelector('img')
+        //     image.src = 'https://www.w3schools.com/w3css/img_snowtops.jpg'
+        // })
+
+        // cách 3
+        function changeURLImage() {
+            const image = document.querySelector('img')
+        image.src = 'https://www.w3schools.com/w3css/img_snowtops.jpg'
+        }
+
+        para1.classList.add('text-danger');
+        para1.classList.remove('para');
+
+        // kiểm tra class có tồn tại trong element hay k?
+        // if (para1.classList.contains('text-danger')) {
+        //     console.log('Có nằm trong');
+        // }else{
+        //     console.log('Không nằm trong');
+        // }
+
+        para1.classList.contains('text-danger') ? console.log('Có nằm trong') : console.log('Không nằm trong');
+
+
+
+
+
+    </script>
+</body>
+
+</html>

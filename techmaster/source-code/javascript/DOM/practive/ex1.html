@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+
+<body>
+
+    <style>
+        .text-change{
+            color: #777;
+            font-size: 2rem;
+        }
+    </style>
+
+    <pre>
+        1. Tìm một phần tử theo id của và thay đổi phần tử đó
+            Trên đoạn văn có id="text":
+
+            Thực hiện những công việc sau
+
+            - Đặt màu văn bản thành #777
+            - Đặt kích thước phông chữ thành 2rem
+            - Đặt nội dung HTML thành Tôi có thể làm <em> bất cứ điều gì </em> tôi muốn với JavaScript.
+    </pre>
+
+    <hr>
+
+    <p id='text'>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows
+        programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+    <p>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows
+        programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+    <p>"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows
+        programs and
+        scripts to dynamically access and update the content, structure, and style of a document."</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui modi in ullam commodi atque adipisci enim! Ullam architecto esse in. Totam hic ad esse id iste, saepe eveniet sit distinctio!</p>
+
+
+
+    <script>
+        const text = document.getElementById('text');
+
+        // way1
+        text.style.color = '#777'
+        text.style.fontSize = '2rem'
+        text.innerHTML = 'Tôi có thể làm <em> bất cứ điều gì </em> tôi muốn với JavaScript.'
+
+        // way2 
+        text.classList.add('text-change');
+        text.innerHTML = 'Tôi có thể làm <em> bất cứ điều gì </em> tôi muốn với JavaScript.'
+
+        
+    </script>
+
+
+
+
+
+</body>
+
+</html>

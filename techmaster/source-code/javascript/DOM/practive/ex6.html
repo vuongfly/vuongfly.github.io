@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change color background</title>
+</head>
+
+<body>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        button {
+            border: 2px solid;
+            padding: 20px 30px;
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+
+
+    <div id="container">
+        <p id="p-color"> hex color: #ffffff </p>
+        <button onclick='changeRandomColor()' id='btn-change-color'>Click</button>
+    </div>
+
+    <script>
+
+
+        let container = document.getElementById('container');
+        // let button = document.getElementById('btn-change-color');
+        
+
+        function randomHexColor() {
+            return Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        function changeRandomColor() {
+            let color = `#${randomHexColor()}`;
+            container.style.backgroundColor = color;
+            console.log(color);
+
+            let pColor = document.getElementById('p-color');
+            pColor.innerHTML = `hex color: ${color}`;
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

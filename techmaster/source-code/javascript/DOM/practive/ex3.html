@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+
+<body>
+
+    <style>
+        .hide {
+            visibility: hidden;
+        }
+    </style>
+
+    <p>Cho 1 đoạn văn và 1 nút button
+        Ấn vào button thì toggle ẩn/hiện đoạn văn</p>
+    <hr>
+    <p id="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo natus illo blanditiis quas nostrum
+        dicta
+        recusandae facere nam deleniti deserunt iusto molestias libero repudiandae sunt veniam voluptatem veritatis,
+        repellendus beatae?</p>
+    <br>
+    <button id="btn" onclick='toggleShowHide()' show='true'>Show</button>
+
+    <script>
+
+        // way 1
+        function showHide() {
+            let btn = document.getElementById('btn');
+            let text = document.getElementById('text');
+            if (btn.getAttribute('show') == 'true') {
+                text.style.visibility = 'hidden';
+                btn.setAttribute('show', 'false');
+                btn.innerText = 'Show';
+            } else {
+                text.style.visibility = 'visible';
+                btn.setAttribute('show', 'true');
+                btn.innerText = 'Hide';
+            }
+        }
+
+        // way 2
+        function toggleShowHide() {
+            let text = document.getElementById('text');
+            text.classList.toggle('hide');
+        }
+
+    </script>
+
+</body>
+
+</html>

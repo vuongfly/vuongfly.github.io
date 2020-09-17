@@ -1,0 +1,101 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+</head>
+
+<body>
+
+    <style>
+        #container {
+            width: 75vw;
+            height: 75vh;
+            background-color: whitesmoke;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+            margin-top: 80px;
+            padding-top: 40px;
+        }
+
+        #title {
+            width: 40%;
+        }
+        button{
+            font-size: 1.5rem;
+            padding: 30px 40px;
+        }
+
+        #content {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 50px;
+        }
+
+        #author {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: cyan;
+            align-self: flex-end;
+            padding-right: 100px;
+        }
+    </style>
+
+    <div id="container">
+        <div id="title">
+            <button id='btn-random' onclick='randomQuotes()'>Random Quotes</button>
+        </div>
+        <div id="content">
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, error exercitationem debitis tempora
+                repellendus blanditiis eius provident maiores ipsum sed libero accusamus sunt pariatur cupiditate?
+                Debitis soluta eius dignissimos. Porro. </p>
+        </div>
+        <div id="author">
+            <p>Vuong Fly</p>
+        </div>
+
+        <script>
+            let quotes = [
+                {
+                    content: 'The greatest glory in living lies not in never falling, but in rising every time we fall',
+                    author: 'Nelson Mandela'
+                },
+                {
+                    content: `Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking`,
+                    author: 'Steve Jobs'
+                },
+                {
+                    content: `If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.`,
+                    author: 'Oprah Winfrey'
+                },
+                {
+                    content: `If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.`,
+                    author: 'James Cameron'
+                },
+                {
+                    content: `Life is what happens when you're busy making other plans`,
+                    author: 'John Lennon'
+                },
+            ]
+
+            function randomQuotes() {
+                let content = document.querySelector('#content p');
+                let author = document.querySelector('#author p');
+                let q = quotes[Math.floor(Math.random() * quotes.length)];
+                content.innerHTML = q.content;
+                author.innerHTML = q.author;
+
+            }
+
+
+        </script>
+
+    </div>
+
+</body>
+
+</html>
