@@ -1,0 +1,145 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bg-blue {
+            background-color: blue;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+    </ul>
+
+    <script>
+        /*
+        Sử dụng javascript để thực hiện những công việc sau
+        
+        1. Thêm 3 thẻ <li> có nội dung Item 8, Item 9, Item 10 vào cuối danh sách
+        
+        2. Sửa nội dung cho thẻ <li> 1 thành màu đỏ (color)
+        
+        3. Sửa background cho thẻ <li> 3 thành màu xanh (background-color)
+        
+        4. Remove thẻ <li> 4
+    
+        5. Thêm thẻ <li> mới thay thế cho thẻ <li> 4 bị xóa ở bước trước, thẻ <li> mới có nội dung bất kỳ
+    
+        6. Thêm 1 nút "add" + 1 ô input để nhập text. Mỗi khi bấm nút thêm 1 thẻ <li> có nội dung là nội dung trong ô input vào cuối danh sách
+    
+        7. Thêm 1 nút "remove". Chức năng để xóa thẻ <li> cuối cùng của danh sách
+    
+        8. Thêm 1 nút "Hide" trên đầu của danh sách <ul>. 
+        Khi bấm vào "Hide" thì <ul> sẽ ẩn. Đồng thời label của nút "Hide" => "Show"
+        Và ngược lại Khi bấm vào "Show" thì <ul> sẽ hiện. Đồng thời label của nút "Show" => "Hide"
+    
+        */
+
+
+        // 1
+        let ul = document.getElementById('list');
+
+        for (let i = 8; i < 11; i++) {
+            let item = document.createElement('li');
+            item.innerText = `Item ${i}`
+            ul.append(item);
+        }
+
+        // 2
+        let liList = document.querySelectorAll('#list li');
+        let list = Array.from(liList);
+        list.map((li, index) => { (index == 0) ? li.classList.add('red') : li });
+
+        // 3
+        // list.map((li, index) => {(index == 2) ? li.classList.add('bg-blue') : li});
+        list[2].classList.add('bg-blue');
+
+        // 4
+        list[3].remove();
+
+        // 5
+        let newLi = document.createElement('li');
+        newLi.innerHTML = 'Vuong Fly';
+        // ul.insertBefore(newLi, ul.childNodes[8]);
+        list[4].insertAdjacentElement('beforebegin', newLi);
+
+
+        // 6
+        let inputAdd = document.createElement('input');
+        let btnAdd = document.createElement('button');
+        btnAdd.innerText = "Add";
+        btnAdd.onclick = addLi;
+
+        document.body.appendChild(inputAdd);
+        document.body.appendChild(btnAdd);
+
+        // let btn = document.querySelector('button');
+        // btn.addEventListener('click', addLi);
+        // btn.onclick = addLi;
+        // let input = document.querySelector('input');
+
+        function addLi() {
+            let inputValue = inputAdd.value;
+            if (inputValue.length > 0) {
+                let newLi = document.createElement('li');
+                newLi.innerHTML = inputValue;
+                ul.appendChild(newLi);
+            }
+        }
+
+        // 7. Thêm 1 nút "remove". Chức năng để xóa thẻ <li> cuối cùng của danh sách
+        let btnRemove = document.createElement("button");
+        btnRemove.innerText = "Remove last element";
+        btnRemove.onclick = removeLastList;
+
+        document.body.appendChild(btnRemove);
+
+        function removeLastList() {
+            let list = Array.from(document.querySelectorAll('#list li'));
+            list[list.length - 1].remove();
+        }
+
+        // 8. Thêm 1 nút "Hide" trên đầu của danh sách <ul>. 
+        // Khi bấm vào "Hide" thì <ul> sẽ ẩn. Đồng thời label của nút "Hide" => "Show"
+        // Và ngược lại Khi bấm vào "Show" thì <ul> sẽ hiện. Đồng thời label của nút "Show" => "Hide"
+
+        let btnHide = document.createElement("button");
+        btnHide.innerText = "Hide";
+        btnHide.onclick = hide;
+
+        function hide() {
+            ul.classList.toggle("hide");
+            ul.classList.contains("hide") ? btnHide.innerText = 'show' : btnHide.innerText = 'hide';
+        }
+
+        document.body.prepend(btnHide);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
