@@ -74,27 +74,48 @@
         .form-input p {
             color: red;
         }
+
+        #success {
+            color: green;
+        }
+
+        #notification {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            /* width: fit-content; */
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Registration Form</h1>
-        <form id="registrationForm">
-            <div class="form-input">
-                <input id="username" type="text">
-            </div>
-            <div class="form-input">
-                <input id="password" type="password">
-            </div>
-            <div class="form-input">
-                <input id="confirmPassword" type="password">
-                <p class='hide'>Mật khẩu chưa trùng khớp</p>
-            </div>
-            <button id="submit" type="submit">Register</button>
-        </form>
+    <div id="content">
+        <div id="notification" class="hide">
+            <p id="success" class="hide">Đăng ký thành công</p>
+        </div>
+        <div class="container">
+            <h1>Registration Form</h1>
+            <form id="registrationForm">
+                <div class="form-input">
+                    <input id="username" type="text">
+                </div>
+                <div class="form-input">
+                    <input id="password" type="password">
+                </div>
+                <div class="form-input">
+                    <input id="confirmPassword" type="password">
+                    <p class='hide'>Mật khẩu chưa trùng khớp</p>
+                </div>
+                <button id="submit" type="submit">Register</button>
+            </form>
+        </div>
     </div>
+
 
     <script>
 
@@ -113,38 +134,88 @@
 
         // Bài 2: Kiểm tra xem password và confirm pass có trùng nhau hay không
         let submit = document.querySelector('#submit');
-        submit.onclick = submitInfor;
+        // submit.onclick = submitInfor;
         let user = document.getElementById('username');
         let password = document.getElementById('password');
         let confirmPassword = document.getElementById('confirmPassword')
 
-        password.onblur = checkPass;
-        confirmPassword.onblur = checkPass;
+        password.onblur = notifyCheckPass;
+        confirmPassword.onblur = notifyCheckPass;
 
         function checkPass() {
-            if (password.value.length > 0) {
-                let errorMessage = document.querySelector('.form-input p')
+            if (password.value.length > 0 && confirmPassword.value.length > 0) {
                 if (password.value != confirmPassword.value) {
-                    if (errorMessage.classList.contains('hide')) {
-                        errorMessage.classList.remove('hide');
-                    }
+                    return false;
                 } else {
-                    errorMessage.classList.add('hide');
                     return true;
                 }
             }
             return false;
         }
 
-        //Bài 3: Đảm bảo nút ‘Đăng ký’ bị disable cho đến khi người dùng nhập dữ liệu hợp lệ vào tất cả các trường đầu vào. Sau khi nhập đầy đủ thì ‘Đăng ký’ được enable.
-        function checkInfo() {
+        function notifyCheckPass() {
+            let errorMessage = document.querySelector('.form-input p')
             if (checkPass()) {
-                
+                if (!errorMessage.classList.contains('hide')) {
+                    // console.log('hide error message');
+                    errorMessage.classList.add('hide');
+                }
+            } else {
+                if (errorMessage.classList.contains('hide')) {
+                    // console.log('display error message');
+                    errorMessage.classList.remove('hide');
+                }
             }
         }
 
+        //Bài 3: Đảm bảo nút ‘Đăng ký’ bị disable cho đến khi người dùng nhập dữ liệu hợp lệ vào tất cả các trường đầu vào. Sau khi nhập đầy đủ thì ‘Đăng ký’ được enable.
+        password.addEventListener('keyup', activeSubmit);
+        confirmPassword.addEventListener('keyup', activeSubmit);
+        user.addEventListener('keyup', activeSubmit);
+
+        function checkInfo() {
+            if (checkPass()) {
+                if (user.value.length > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function activeSubmit() {
+            if (checkInfo()) {
+                submit.disabled = false;
+                submit.style.background = '#3171E5';
+            } else {
+                submit.disabled = true;
+                submit.style.background = '#7ea1e0';
+            }
+        }
+
+        activeSubmit();
+
+
+
         // Bài 4: Khi user nhập đủ thông tin và bấm vào nút submit thì tạo 1 hộp thoại thông báo đăng ký thành công
 
+        submit.onclick = function (e) {
+            e.preventDefault();
+            let notification = document.getElementById('notification')
+            let success = document.getElementById('success')
+            if (checkInfo()) {
+                if (notification.classList.contains('hide')) {
+                    notification.classList.remove('hide')
+                    success.classList.remove('hide')
+                }
+            } else {
+                if (!notification.classList.contains('hide')) {
+                    notification.classList.add('hide')
+                }
+            }
+        }
 
         // Bài 5: ẩn hiện password
 
