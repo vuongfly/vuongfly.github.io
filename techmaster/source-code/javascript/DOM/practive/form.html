@@ -134,7 +134,6 @@
 
         // Bài 2: Kiểm tra xem password và confirm pass có trùng nhau hay không
         let submit = document.querySelector('#submit');
-        // submit.onclick = submitInfor;
         let user = document.getElementById('username');
         let password = document.getElementById('password');
         let confirmPassword = document.getElementById('confirmPassword')
@@ -155,15 +154,17 @@
 
         function notifyCheckPass() {
             let errorMessage = document.querySelector('.form-input p')
-            if (checkPass()) {
-                if (!errorMessage.classList.contains('hide')) {
-                    // console.log('hide error message');
-                    errorMessage.classList.add('hide');
-                }
-            } else {
-                if (errorMessage.classList.contains('hide')) {
-                    // console.log('display error message');
-                    errorMessage.classList.remove('hide');
+            if (password.value.length > 0 && confirmPassword.value.length > 0) {
+                if (checkPass()) {
+                    if (!errorMessage.classList.contains('hide')) {
+                        // console.log('hide error message');
+                        errorMessage.classList.add('hide');
+                    }
+                } else {
+                    if (errorMessage.classList.contains('hide')) {
+                        // console.log('display error message');
+                        errorMessage.classList.remove('hide');
+                    }
                 }
             }
         }
