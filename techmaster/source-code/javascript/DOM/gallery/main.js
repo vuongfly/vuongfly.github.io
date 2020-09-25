@@ -73,11 +73,20 @@ let cakes = [
     },
 ];
 
-function showAllCard() {
-    let cakesList = document.querySelector('.card-list');
-    cakes.forEach(ele => {
+let cakeOnPAge = 3;
+let cakesList = document.querySelector('.card-list');
+
+function showResult(cakeResult) {
+    clearAllCard();
+    cakeResult.forEach(ele => {
         addCake(cakesList, ele)
     });
+    showPagination(cakeOnPAge, cakeResult, 1);
+}
+
+
+function showAllCard() {
+    showResult(cakes);
 }
 
 function clearAllCard() {
@@ -103,20 +112,15 @@ function addCake(cakesList, ele) {
     cakesList.insertAdjacentHTML('beforeend', item);
 }
 
-showAllCard();
 
 function findCardByCategory(category) {
     if (category == 'All') {
         showAllCard();
-        return;
+        return cakes;
     }
     let cakesList = document.querySelector('.card-list');
-    clearAllCard();
     let result = cakes.filter(cakes => cakes.type == category);
-    result.forEach(ele => {
-        addCake(cakesList, ele)
-    });
-
+    return result;
 }
 
 let btnCategory = document.querySelectorAll(".category button");
@@ -126,7 +130,8 @@ btnCategory.forEach(btn => {
     btn.onclick = () => {
         deActive(btnCategory)
         btn.classList.toggle("active");
-        findCardByCategory(btn.getAttribute("cate"));
+        let result = findCardByCategory(btn.getAttribute("cate"));
+        showResult(result);
     }
 })
 
@@ -136,3 +141,38 @@ function deActive(btnCategory) {
     })
 }
 
+function showPagination(cakeOnPage, cakesList, onPage = 1) {
+    let pages = Math.ceil(cakesList.length / cakeOnPage);
+    let pagination = document.querySelector('.pagination');
+    pagination.innerHTML = "";
+    for (let i = 0; i < pages; i++) {
+        // creat div for page number
+        console.log(i + 1);
+        let divPageNum = document.createElement('div');
+        divPageNum.classList.add('page-number');
+        divPageNum.innerHTML = `${i + 1}`;
+        if (i + 1 == onPage) {
+            divPageNum.classList.add('active');
+        }
+        divPageNum.onclick = function () {
+            paging(cakeOnPage, cakesList, i + 1);
+        };
+        pagination.insertAdjacentElement("beforeend", divPageNum);
+    }
+    return cakesList;
+}
+
+function paging(cakeOnPage, cakesList, onPage = 1) {
+    // display cake by page number
+    console.log('Paging');
+    let pages = Math.ceil(cakesList / cakeOnPage);
+    let result = cakesList.filter((cake, index) => (index >= (onPage - 1) * cakeOnPage && index < onPage * cakeOnPage));
+    console.log(result);
+    showResult(result);
+    return cakesList;
+}
+
+
+
+showAllCard();
+showPagination(cakeOnPAge, cakes, 1);
