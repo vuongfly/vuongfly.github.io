@@ -73,15 +73,17 @@ let cakes = [
     },
 ];
 
-let cakeOnPAge = 3;
+let cakeOnPage = 3;
 let cakesList = document.querySelector('.card-list');
 
-function showResult(cakeResult) {
+function showResult(cakeResult, onPage = 1) {
     clearAllCard();
-    cakeResult.forEach(ele => {
-        addCake(cakesList, ele)
+    cakeResult.forEach((ele, index) => {
+        if (index < onPage * cakeOnPage && index >= (onPage - 1) * cakeOnPage) {
+            addCake(cakesList, ele)
+        }
     });
-    showPagination(cakeOnPAge, cakeResult, 1);
+    showPagination(cakeOnPage, cakeResult, onPage);
 }
 
 
@@ -166,13 +168,12 @@ function paging(cakeOnPage, cakesList, onPage = 1) {
     // display cake by page number
     console.log('Paging');
     let pages = Math.ceil(cakesList / cakeOnPage);
-    let result = cakesList.filter((cake, index) => (index >= (onPage - 1) * cakeOnPage && index < onPage * cakeOnPage));
-    console.log(result);
-    showResult(result);
+    // let result = cakesList.filter((cake, index) => (index >= (onPage - 1) * cakeOnPage && index < onPage * cakeOnPage));
+    showResult(cakesList, onPage);
     return cakesList;
 }
 
 
 
 showAllCard();
-showPagination(cakeOnPAge, cakes, 1);
+showPagination(cakeOnPage, cakes, 1);
