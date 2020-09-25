@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Table</title>
+</head>
+
+<body>
+
+    
+
+    <style>
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        th {
+            background-color: cyan;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 15px 25px;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Chi tiết thông tin học viên</h1>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Số buổi nghỉ</th>
+                    <th>Ngày nghỉ học</th>
+                    <th>Ghi chú</th>
+                    <th>Giảng viên</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td rowspan="2">1</td>
+                    <td rowspan="2">Vượng Fly</td>
+                    <td rowspan="2">vuongfly96@gmail.com</td>
+                    <td rowspan="2">0347545020</td>
+                    <td rowspan="2">2/14</td>
+                    <td> 1-1-2020 </td>
+                    <td>Nghỉ vì thích nghỉ</td>
+                    <td> Bùi Hiên</td>
+                </tr>
+                <tr>
+                    <td> 9-8-2020</td>
+                    <td> Nghỉ đi chơi </td>
+                    <td> Thầy nào đó</td>
+                </tr> -->
+
+            </tbody>
+        </table>
+        <div class="class-detail">
+            <h1>Chi tiết lớp học</h1>
+            <div class="class-inner">
+                <b>Lớp học:</b> <span id="class">Lập trình game 20D canvas</span> <br>
+                <b>Thuộc khóa học:</b> <span id="course">Lập trình gameeeee</span> <br>
+                <b>Danh sách giảng viên:</b> <br>
+                <ul id="teachers">
+                    <li>Bùi Hiênnnn</li>
+                    <li>Nguyễn Hàn Duyyyy</li>
+                </ul>
+                <b>Tổng số buổi:</b> <span id="sessions">1444</span> <br>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
