@@ -24,7 +24,8 @@ todoList = [
 
 let todo_list = document.querySelector('.todo-list');
 let btn_add = document.querySelector('#btn-add');
-let todo_option_item = document.querySelectorAll('todo-option-item');
+let todo_option_item = document.querySelectorAll('.todo-option-item input');
+let todo_input = document.querySelector('#todo-input');
 
 function renderUI(todoList) {
     // render UI by todoList
@@ -43,23 +44,19 @@ function renderUI(todoList) {
 
 function renderItem(item) {
     return `<div class="todo-item active-todo row space-between">
-                <div class="todo-item-title row" onclick="toggleStatus(${item.id})">
+                <div class="todo-item-title row">
                     <input type="checkbox" ${item.status ? 'checked' : ''} >
-                    <label  class="${item.status ? 'deActive-todo' : ''}">${item.title}</label>
+                    <label  class="${item.status ? 'deActive-todo' : ''}"  onclick="toggleStatus('${item.id}')" >${item.title}</label>
                 </div>
                 <div class="option">
-                    <button class="btn btn-update" onclick="updateTodo(${item.id})">
+                    <button class="btn btn-update" onclick="changeToUpdateBtn('${item.id}')">
                         <img src="./img/pencil.svg" alt="icon">
                     </button>
-                    <button class="btn btn-delete" onclick="deleteTodo(${item.id})">
+                    <button class="btn btn-delete" onclick="deleteTodo('${item.id}')">
                         <img src="./img/remove.svg" alt="icon">
                     </button>
                 </div>
             </div>`;
-}
-
-function updateTodo(id) {
-    console.log('update');
 }
 
 function deleteTodo(id) {
@@ -88,8 +85,9 @@ function toggleStatus(id) {
     renderUI(todoList);
 }
 
+btn_add.onclick = addItem;
 
-btn_add.addEventListener('click', function (e) {
+function addItem() {
     // get input value
     let input = document.querySelector('.todo-input input');
     if (input.value.trim().length <= 0) {
@@ -101,27 +99,87 @@ btn_add.addEventListener('click', function (e) {
     let newTodo = { id: newID, title: input.value.trim(), status: false };
     // push obj to list
     todoList.push(newTodo);
-    console.log(todoList);
+    // console.log(todoList);
     // render UI again
     renderUI(todoList);
-})
+}
 
 function getOptionSelected() {
-    for(let i = 0; i < todo_option_item.length;){
-        if(todo_option_item[i].checked){
+    for (let i = 0; i < todo_option_item.length;) {
+        if (todo_option_item[i].checked) {
             return parseInt(todo_option_item[i].value);
         }
     }
 }
 
+console.log(todo_option_item);  
+
 todo_option_item.forEach(item => {
-    item.addEventListener('click', function (e){
-        console.log(e.value);
+    // create event for radio button
+    item.addEventListener('change', function () {
+        renderUIbyStatus(item.value);
     })
 });
 
-function init() {
-    renderUI(todoList)
+function renderUIbyStatus(status) {
+    let newTodo = [];
+    switch (status) {
+        case '1':
+            newTodo = todoList;
+            break;
+        case '2':
+            newTodo = todoList.filter(todo => true == todo.status)
+            break;
+        case '3':
+            newTodo = todoList.filter(todo => false == todo.status)
+            break;
+        default:
+            newTodo = todoList;
+            break;
+    }
+    console.log(newTodo);
+    renderUI(newTodo);
 }
+
+function updateTodo(id) {
+    // changeToUpdateBtn(id);
+    console.log("updateTodo", id);
+    let newTitle = todo_input.value;
+    console.log(newTitle);
+    todoList.forEach(todo => {
+        if (todo.id == id) {
+            todo.title = newTitle;
+        }
+    })
+    renderUI(todoList);
+    changeToAddBtn();
+
+}
+
+function changeToUpdateBtn(id) {
+    btn_add.innerText = 'Cập nhật';
+    let textChange = '';
+    todoList.forEach(todo => {
+        if (todo.id == id) {
+            textChange = todo.title;
+        }
+    });
+    todo_input.value = textChange;
+    btn_add.onclick = function () {
+        updateTodo(id);
+    };
+}
+
+function changeToAddBtn() {
+    btn_add.innerText = "Thêm";
+    todo_input.value = '';
+    btn_add.onclick = addItem;
+}
+
+function init() {
+    renderUI(todoList);
+}
+
+
 
 window.onload = init();

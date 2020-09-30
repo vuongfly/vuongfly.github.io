@@ -104,3 +104,7 @@ button{
     outline: none;
     cursor: pointer;
 }
+
+.updateBtn{
+    content:"Cập nhật";
+}
