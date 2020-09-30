@@ -18,3 +18,10 @@ BƯỚC 2: LUẬT CHƠI
     Nếu người chơi hiện tại muốn lưu kết quả của lần chơi đó thì bấm vào nút "LƯU ĐIỂM" điểm sẽ được cộng với điểm của các lượt chơi trước
     - Ai đạt được số điểm => số điểm nhập | điểm cố định đầu game thì người đó thắng cuộc
     - Khi người chơi thắng cuộc cần thông báo cho người chơi
+
+
+------------------------------------------------------------------------------------------------
+Tạo ra 2 người chơi
+renderUI cho 2 ng chơi
+    - lấy ra các phần tử cần update data
+    - update data theo phần tử vừa lấy ra
