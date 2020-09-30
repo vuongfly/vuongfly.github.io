@@ -180,6 +180,4 @@ function init() {
     renderUI(todoList);
 }
 
-
-
 window.onload = init();
