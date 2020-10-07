@@ -72,7 +72,6 @@ function create_UUID() {
     return uuid;
 }
 
-
 function createPeople(name) {
     let p = new Person(create_UUID(), name);
     people.push(p);
@@ -106,11 +105,8 @@ function renderUI(people) {
 newGame();
 console.log(people);
 
-
-
 // let peopleHtml = document.querySelectorAll('.player-0-panel, .player-1-panel');
 // peopleHtml = Array.from(peopleHtml);
-
 
 // let player0 = document.querySelectorAll('.player-0-panel div');
 // player0 = Array.from(player0);

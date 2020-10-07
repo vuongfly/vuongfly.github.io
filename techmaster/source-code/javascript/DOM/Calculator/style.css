@@ -1,0 +1,60 @@
+:root {
+    --input-bg-color: rgb(77, 184, 157);
+    --bg-color: rgb(47, 141, 230);
+    --number-bg-color: rgb(77, 184, 157);
+    --function-bg-color: rgb(46, 116, 228);
+    --equal-bg-color: rgb(51, 31, 228);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 700px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 50px;
+}
+
+.textArea {
+    width: 100%;
+}
+
+.inputField, #inputField, .result label {
+    width: 100%;
+}
+
+.result label{
+    text-align: right;
+}
+
+#inputField, .result label {
+    font-size: 30px;
+    line-height: 2.5rem;
+    outline: none;
+    border: none;
+    background-color: var(--input-bg-color);
+    margin: 0px;
+}
+
+.btn-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    align-self: center;
+  }
+
+.btn {
+    width: 100px;
+    height: 100px;
+}
