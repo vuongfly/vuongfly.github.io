@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="choose-level-container column hide">
+            <div class="choose-level-content center column ">
+                <div class="choose-level-title center">
+                    Choose level game
+                </div>
+                <div class="choose-level-item center">
+                    <select name="level" id="level">
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+                <button class="btn-start center text-center">Start </button>
+            </div>
+        </div>
+        <div class="ingame-container center ">
+            <div class="ingame-content center column">
+                <div class="ingame-title margin-bot15">
+                    Typing Game
+                </div>
+                <div class="row space-around margin-bot15">
+                    <div class="ingame-time">
+                        <span class="center" id="time">Time: </span>
+                    </div>
+                    <div class="ingame-point">
+                        <span class="center" id="point">Point: </span>
+                    </div>
+                </div>
+                <label class="center margin-bot15" for="">Input word</label>
+                <label class="center margin-bot15" id="word" for="word">Word</label>
+                <input id="input" class="center" type="text">
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+    <!-- <script src="./chooseLvl.js" type="module"></script> -->
+
+</body>
+
+</html>
